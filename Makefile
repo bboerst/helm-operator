@@ -157,5 +157,6 @@ serve-docs: build-docs
 	@docker run -i -p ${DOCS_PORT}:8000 -e USER_ID=$$UID flux-docs
 
 .PHONY: build.image.multiarch
+# linux/amd64,linux/arm64,
 build.image.multiarch:
 	docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t bboerst/flux-helm-operator:latest-multiarch -f docker/Dockerfile.build . --push
